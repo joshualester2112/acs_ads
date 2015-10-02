@@ -12,25 +12,23 @@
 
 	var tl1 = new TimelineMax();
 
-
-	tl1.to(acsBackground, 7, { scale: 1.6, ease: Power1.easeInOut }, '4');
+	tl1.to(acsBackground, 5, { scale: 1.6, ease: Power1.easeInOut }, '4');
 
 	var tl2 = new TimelineMax();
 
-	tl2.from(txt1, 0.75, { top: 129, opacity: 0, ease: Power1.easeIn }, '1.5')
-		.from(txt2, 0.75, { opacity: 0, ease: Power1.easeOut }, '+=1')
-		.to(txt1, 0.6, { opacity: 0, ease: Power1.easeIn }, '+=2')
-		.to(txt2, 0.6, { opacity: 0, ease: Power1.easeIn }, '-=.6')
-		.from(logo, 0.75, { top: 8, opacity: 0, ease: Power1.easeIn}, '+=2')
-		.from(txt3, 0.75, { top: 91, opacity: 0, ease: Power1.easeIn}, '+=1')
-		.to(txt3, 0.6, { opacity: 0, ease: Power1.easeIn}, '+=2')
-		.to(acsBackground, 7, { scale: 1, ease: Power1.easeInOut }, '13')
-		.from(txt4, 0.75, { top: 167, opacity: 0, ease: Power1.easeInOut }, 'lives')
-		.from(txt5, 0.75, { top: 183, opacity: 0, ease: Power1.easeInOut })
-		.to(txt4, 0.6, { opacity: 0, ease: Power1.easeInOut }, '+=2')
-		.to(txt5, 0.6, { opacity: 0, ease: Power1.easeInOut }, '-=0.75')
-		.from(txt6, 0.75, { top: 138, opacity: 0, ease: Power1.easeInOut }, '+=1')
-		.from(donate, 0.75, { top: 162, opacity: 0, ease: Power1.easeInOut }, '+=1')
+	tl2.from(txt1, 0.5, { top: 129, opacity: 0, ease: Power1.easeIn }, '+=1.25')
+		.from(txt2, 0.5, { opacity: 0, ease: Power1.easeOut }, '+=1.25')
+		.to(txt1, 0.3, { opacity: 0, ease: Power1.easeIn }, '+=3')
+		.to(txt2, 0.3, { opacity: 0, ease: Power1.easeIn }, '-=.3')
+		.from(logo, 0.5, { top: 8, opacity: 0, ease: Power1.easeIn}, '+=2')
+		.from(txt3, 0.5, { top: 91, opacity: 0, ease: Power1.easeIn}, '+=1')
+		.to(txt3, 0.3, { opacity: 0, ease: Power1.easeIn}, '+=2')
+		.to(acsBackground, 5, { scale: 1, ease: Power1.easeInOut }, '13')
+		.from(txt4, 0.5, { top: 167, opacity: 0, ease: Power1.easeInOut }, 'lives')
+		.from(txt5, 0.5, { top: 183, opacity: 0, ease: Power1.easeInOut })
+		.to(txt4, 0.3, { opacity: 0, ease: Power1.easeInOut }, '+=2')
+		.to(txt5, 0.3, { opacity: 0, ease: Power1.easeInOut }, '-=0.75')
+		.from(txt6, 0.5, { top: 138, opacity: 0, ease: Power1.easeInOut }, '+=1')
+		.from(donate, 0.5, { top: 162, opacity: 0, ease: Power1.easeInOut }, '+=1')
 	;
-
 }());
