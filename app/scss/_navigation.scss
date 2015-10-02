@@ -1,0 +1,221 @@
+// ***********************************
+// NAVIGATION
+// ***********************************
+
+#main-nav {
+	display: none;
+}
+
+/*--__--__--__--__--__--__--__--__--__--__--*\
+                 MAIN MENU
+\*__--__--__--__--__--__--__--__--__--__--__*/
+
+
+#menu-btn {
+  @include position(absolute, 1em 1em null null);
+  z-index: 9000;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  @include size(50px 50px);
+  background-color: transparent;
+  font-size: 0;
+  text-indent: -9999px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s background cubic-bezier(.75,.28,1,1);
+  // @include media($desktop) {
+    // @include size(70px 70px);
+  // }
+}
+
+#menu-btn:focus {
+  outline: none;
+}
+#menu-btn span {
+  display: block;
+  position: absolute;
+  @include position(absolute, 22px 14% null 14%);
+  height: 6px;
+  background: $white;
+  border-radius: 3px;
+  // @include media($desktop) {
+    // height: 8px;
+    // top: 31px;
+  // }
+}
+
+#menu-btn span::before,
+#menu-btn span::after {
+  border-radius: 3px;
+  position: absolute;
+  display: block;
+  left: 0;
+  @include size(100% 6px);
+  content: "";
+  // @include media($desktop) {
+    // height: 8px;
+  // }
+}
+
+#menu-btn span::before {
+  background-color: $white;
+  top: -12px;
+  // @include media($desktop) {
+    // top: -16px;
+  // }
+}
+
+#menu-btn span::after {
+  bottom: -12px;
+  background-color: $white;
+  // @include media($desktop) {
+    // bottom: -16px;
+  // }
+}
+
+#menu-btn span {
+  transition: background 0s 0.2s;
+}
+
+#menu-btn span::before,
+#menu-btn span::after {
+  transition-duration: 0.2s, 0.2s;
+  transition-delay: 0.2s, 0s;
+}
+
+#menu-btn span::before {
+  transition-property: top, transform;
+}
+
+#menu-btn span::after {
+  transition-property: bottom, transform;
+}
+
+// ACTIVE STATE
+#menu-btn.is-active {
+  background-color: $white;
+}
+
+#menu-btn.is-active span {
+  background: none;
+}
+
+#menu-btn.is-active span::before {
+  background-color: $charcoal;
+  top: 0;
+  transform: rotate(45deg);
+}
+
+#menu-btn.is-active span::after {
+  background-color: $charcoal;
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+#menu-btn.is-active span::before,
+#menu-btn.is-active span::after {
+  transition-delay: 0s, 0.2s;
+}
+
+#menu {
+  z-index: 8000;
+  @include size(100% 100%);
+  background-color: rgba(34,34,34,0.9);
+  @include position(fixed, 0 null null null);
+  @include padding(3em 1em);
+  transition: .4s all cubic-bezier(.7,-.3,.3,1.3);
+  
+  #menu-main-nav {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    .menu-item {
+      position: relative;
+      color: $white;
+      a {
+        font-size: 1.25em;
+        text-transform: uppercase;
+        letter-spacing: .35em;
+        color: $white;
+        position: relative;
+        padding: 3px;
+        @include size(100% 100%);
+        line-height: 2.15;
+        text-decoration: none;
+        transition: .2s all ease-in-out;
+        // @include media(new-breakpoint(min-width 1441px)) {
+          // font-size: 1.35em;
+        // }
+        &:hover {
+          transition: .15s all ease-in-out;
+          color: rgba(255,255,255,0.75);
+        }
+      }      
+    }
+
+    a:after {
+      content: "";
+      @include position(absolute, null null 0 0);
+      position: absolute;
+      @include size(102% 1px);
+      background-color: rgba(255,255,255,0.75);
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.15s ease-in-out 0s;
+    }
+    a:hover:after {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+    .sub-menu {
+      padding: 0;
+    }
+    .sub-menu li {
+      font-size: 0.75em;
+      padding: .75em;
+      a {
+        // font-family: $tertiary-font;
+        font-size: 1.3em;
+        text-transform: none;
+        letter-spacing: .35em;
+        color: $white;
+        position: relative;
+        padding: 3px;
+        line-height: 2.15;
+        transition: .2s all ease-in-out;
+        // @include media(new-breakpoint(min-width 1441px)) {
+          // font-size: 1.35em;
+        // }
+        &:hover {
+          transition: .15s all ease-in-out;
+          color: rgba(255,255,255,0.75);
+        }
+      }
+    }
+  }
+}
+
+.dark,
+.light {
+  transition: .3s all cubic-bezier(.75,.28,1,1);
+}
+.dark {
+  // background: rgba(34,34,34,0.9);
+}
+.light {
+  // background: $white;
+}
+.transparent {
+  background: transparent;
+}
+.open {
+  overflow-y: scroll;
+  left: 0;
+}
+.closed {
+  left: -110%;
+}

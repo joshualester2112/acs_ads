@@ -1,0 +1,88 @@
+/*------------------------------*\
+			  BASE
+\*------------------------------*/
+
+* {
+	box-sizing: border-box;
+	text-rendering: optimizeLegibility;
+	margin: 0;
+}
+
+body {
+	padding: 10px;
+}
+
+img {
+	position: absolute;
+	height: auto;
+	max-width: 100%;
+	vertical-align: top;
+}
+
+#acs-ad-link {
+	display:inline-block;
+}
+
+#acs-ad-holder {
+	@include size(300px 250px);
+	position: relative;
+	overflow: hidden;
+}
+
+#acs-ad-background {
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	background: url('../media/img/ad_background.jpg') no-repeat 0px 0px;
+	transform: scale(2.56);
+	transform-origin: 0px 75px;
+}
+
+#acs-ad-txt1 {
+	top: 134px;
+	width: inherit;
+	text-align: center;
+}
+
+#acs-ad-txt2 {
+	@include position(absolute, 157px 0px null 0px);
+	@include margin(0 auto);
+}
+
+#acs-ad-txt3 {
+	top: 96px;
+	right: 15px;
+}
+
+#acs-ad-logo {
+	top: 13px;
+	right: 17px;
+}
+
+#acs-ad-txt4 {
+	top: 172px;
+	right: 23px;
+}
+
+#acs-ad-txt5 {
+	top: 189px;
+	right: 30px;
+}
+
+#acs-ad-txt6 {
+	top: 143px;
+	right: 32px;
+}
+
+#acs-donate {
+	@include size(122px 39px);
+	@include position(absolute, 167px 23px null null);
+	font-family: 'FrutigerLTStd-Bold', Arial, sans-serif;
+	width: 122px;
+	height: 39px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 2.25;
+	color: #fff;
+	background-color: #3067b3;
+}

@@ -1,0 +1,18 @@
+// ***********************************
+// FONTS
+// ***********************************
+@include font-face(FrutigerLTStd-Roman, 'fonts/FrutigerLTStd-Roman_gdi', normal, normal);
+@include font-face(FrutigerLTStd-Bold, 'fonts/FrutigerLTStd-Bold_gdi', normal, normal);
+
+
+
+// ***********************************
+// TYPOGRAPHY AND LINKS
+// ***********************************
+
+.acs-ad-txt {
+	position: absolute;
+	font-family: 'FrutigerLTStd-Roman', Arial, sans-serif;
+	font-size: 15px;
+	color: #fff;
+}
