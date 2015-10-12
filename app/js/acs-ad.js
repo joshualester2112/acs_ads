@@ -12,23 +12,23 @@
 
 	var tl1 = new TimelineMax();
 
-	tl1.to(acsBackground, 5, { scale: 1.6, ease: Power1.easeInOut }, '4');
+	tl1.to(acsBackground, 15, { scale: 0.5, y: 0, ease: Sine.easeInOut }, '1');
 
 	var tl2 = new TimelineMax();
 
-	tl2.from(txt1, 0.5, { top: 129, opacity: 0, ease: Power1.easeIn }, '+=1.25')
-		.from(txt2, 0.5, { opacity: 0, ease: Power1.easeOut }, '+=1.25')
-		.to(txt1, 0.3, { opacity: 0, ease: Power1.easeIn }, '+=3')
+	tl2.from(txt1, 0.5, { top: 129, opacity: 0, ease: Power1.easeIn }, '+=1.2')
+		.from(txt2, 0.5, { opacity: 0, ease: Power1.easeOut }, '+=0.3')
+		.to(txt1, 0.3, { opacity: 0, ease: Power1.easeIn }, '+=2')
 		.to(txt2, 0.3, { opacity: 0, ease: Power1.easeIn }, '-=.3')
-		.from(logo, 0.5, { top: 8, opacity: 0, ease: Power1.easeIn}, '+=2')
-		.from(txt3, 0.5, { top: 91, opacity: 0, ease: Power1.easeIn}, '+=1')
-		.to(txt3, 0.3, { opacity: 0, ease: Power1.easeIn}, '+=2')
-		.to(acsBackground, 5, { scale: 1, ease: Power1.easeInOut }, '13')
-		.from(txt4, 0.5, { top: 167, opacity: 0, ease: Power1.easeInOut }, 'lives')
-		.from(txt5, 0.5, { top: 183, opacity: 0, ease: Power1.easeInOut })
+		.from(logo, 0.5, { top: 8, opacity: 0, ease: Power1.easeIn}, '+=4')
+		.from(txt3, 0.5, { top: 91, opacity: 0, ease: Power1.easeIn}, '+=0.3')
+		.to(txt3, 0.3, { opacity: 0, ease: Power1.easeIn}, '+=1')
+		.from(txt4, 0.5, { top: 167, opacity: 0, ease: Power1.easeInOut }, 'lives+=1.3')
+		.from(txt5, 0.5, { top: 183, opacity: 0, ease: Power1.easeInOut },'-=0.2')
 		.to(txt4, 0.3, { opacity: 0, ease: Power1.easeInOut }, '+=2')
-		.to(txt5, 0.3, { opacity: 0, ease: Power1.easeInOut }, '-=0.75')
+		.to(txt5, 0.3, { opacity: 0, ease: Power1.easeInOut }, '-=0.3')
 		.from(txt6, 0.5, { top: 138, opacity: 0, ease: Power1.easeInOut }, '+=1')
-		.from(donate, 0.5, { top: 162, opacity: 0, ease: Power1.easeInOut }, '+=1')
+		.from(donate, 0.5, { top: 162, opacity: 0, ease: Power1.easeInOut })
 	;
+	// tl2.seek('lives');
 }());
