@@ -9,7 +9,13 @@
 var config = {
 	jsConcatFiles: [
 		'./app/js/acs-ad.js'
-	], 
+	],
+	tweenmaxBundle: [
+		'./app/js/CSSPlugin.min.js',
+		'./app/js/EasePack.min.js',
+		'./app/js/TweenLite.min.js',
+		'./app/js/TimelineMax.min.js'
+	],
 	buildFilesFoldersRemove:[
 		'build/scss/', 
 		'build/js/!(*.min.js)',
@@ -60,6 +66,24 @@ gulp.task('scripts', function() {
 		.pipe(uglify())
 		.on('error', errorlog)
 		.pipe(rename('acs-ad.min.js'))		
+    .pipe(sourcemaps.write('../maps'))
+    .pipe(gulp.dest('./app/js/'))
+    .pipe(reload({stream:true}));
+});
+
+
+// ////////////////////////////////////////////////
+// Bundle Library Scripts Tasks
+// ///////////////////////////////////////////////
+
+
+gulp.task('lib-scripts', function() {
+  return gulp.src(config.tweenmaxBundle)
+	.pipe(sourcemaps.init())
+		.pipe(concat('lib-bundle.js'))
+		.pipe(uglify())
+		.on('error', errorlog)
+		.pipe(rename('lib-bundle.min.js'))		
     .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest('./app/js/'))
     .pipe(reload({stream:true}));
@@ -154,4 +178,4 @@ gulp.task ('watch', function(){
 });
 
 
-gulp.task('default', ['scripts', 'styles', 'html', 'browser-sync', 'watch']);
+gulp.task('default', ['scripts', 'lib-scripts', 'styles', 'html', 'browser-sync', 'watch']);
