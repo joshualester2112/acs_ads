@@ -42,7 +42,7 @@ img {
 	width: 600px;
 	height: 500px;
 	background: url('../media/img/ad_background.jpg') no-repeat 0px 0px;
-	transform: translate3d(0px,-60px,0px) scale(1.3);
+	transform: translate3d(0px,-60px,0px) scale(2.6);
 	transform-origin: 0px 0px;
 }
 
@@ -53,7 +53,7 @@ img {
 }
 
 #acs-ad-txt2 {
-	@include position(absolute, 157px 0px null 0px);
+	@include position(absolute, 142px 0px null 0px);
 	@include margin(0 auto);
 }
 
