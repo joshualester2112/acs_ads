@@ -32,16 +32,18 @@ var config = {
 // bulp build:serve
 // // /////////////////////////////////////////////
 
-var gulp = require('gulp'),
-	sass = require('gulp-sass'),
-	sourcemaps = require('gulp-sourcemaps'),
-	autoprefixer = require('gulp-autoprefixer'),
-	browserSync = require('browser-sync'),
-	reload = browserSync.reload,
-	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify'),
-	rename = require('gulp-rename'),
-	del = require('del');
+var gulp 			= require('gulp'),
+	sass 			= require('gulp-sass'),
+	sourcemaps 		= require('gulp-sourcemaps'),
+	autoprefixer 	= require('gulp-autoprefixer'),
+	browserSync 	= require('browser-sync'),
+	reload 			= browserSync.reload,
+	concat 			= require('gulp-concat'),
+	uglify 			= require('gulp-uglify'),
+	rename 			= require('gulp-rename'),
+	del 			= require('del'),
+	imagemin 		= require('gulp-imagemin')
+;
 
 
 // ////////////////////////////////////////////////
@@ -87,6 +89,21 @@ gulp.task('lib-scripts', function() {
     .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest('./app/js/'))
     .pipe(reload({stream:true}));
+});
+
+
+// ////////////////////////////////////////////////
+// Image Compression
+// ///////////////////////////////////////////////
+
+gulp.task('image-min', function() {
+	gulp.src('app/media/img/*')
+		.pipe(imagemin({
+			progressive: true,
+			optimizationLevel: 4
+		}))	
+		.pipe(gulp.dest('app/media/img'))
+		.pipe(reload({stream:true}));
 });
 
 
@@ -178,4 +195,4 @@ gulp.task ('watch', function(){
 });
 
 
-gulp.task('default', ['scripts', 'lib-scripts', 'styles', 'html', 'browser-sync', 'watch']);
+gulp.task('default', ['scripts', 'lib-scripts', 'image-min' ,'styles', 'html', 'browser-sync', 'watch']);
