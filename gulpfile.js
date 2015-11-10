@@ -37,12 +37,13 @@ var gulp 			= require('gulp'),
 	sourcemaps 		= require('gulp-sourcemaps'),
 	autoprefixer 	= require('gulp-autoprefixer'),
 	browserSync 	= require('browser-sync'),
-	reload 			= browserSync.reload,
+	// reload 			= browserSync.reload,
 	concat 			= require('gulp-concat'),
 	uglify 			= require('gulp-uglify'),
 	rename 			= require('gulp-rename'),
 	del 			= require('del'),
-	imagemin 		= require('gulp-imagemin')
+	imagemin 		= require('gulp-imagemin'),
+	livereload		= require('gulp-livereload')
 ;
 
 
@@ -70,7 +71,8 @@ gulp.task('scripts', function() {
 		.pipe(rename('acs-ad.min.js'))		
     .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest('./app/js/'))
-    .pipe(reload({stream:true}));
+    .pipe(livereload());
+    // .pipe(reload({stream:true}));
 });
 
 
@@ -88,7 +90,8 @@ gulp.task('lib-scripts', function() {
 		.pipe(rename('lib-bundle.min.js'))		
     .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest('./app/js/'))
-    .pipe(reload({stream:true}));
+    .pipe(livereload());
+    // .pipe(reload({stream:true}));
 });
 
 
@@ -103,7 +106,8 @@ gulp.task('image-min', function() {
 			optimizationLevel: 4
 		}))	
 		.pipe(gulp.dest('app/media/img'))
-		.pipe(reload({stream:true}));
+		.pipe(livereload());
+		// .pipe(reload({stream:true}));
 });
 
 
@@ -122,7 +126,8 @@ gulp.task('styles', function() {
 	        }))	
 		.pipe(sourcemaps.write('../maps'))
 		.pipe(gulp.dest('app/css'))
-		.pipe(reload({stream:true}));
+		.pipe(livereload());
+		// .pipe(reload({stream:true}));
 });
 
 
@@ -132,7 +137,9 @@ gulp.task('styles', function() {
 
 gulp.task('html', function(){
     gulp.src('app/**/*.html')
-    .pipe(reload({stream:true}));
+    	.pipe(livereload());
+
+    // .pipe(reload({stream:true}));
 });
 
 
@@ -140,13 +147,22 @@ gulp.task('html', function(){
 // Browser-Sync Tasks
 // // /////////////////////////////////////////////
 
-gulp.task('browser-sync', function() {
-    browserSync({
-        server: {
-            baseDir: "./app/"
-        }
-    });
-});
+// gulp.task('browser-sync', function() {
+    // browserSync({
+        // server: {
+            // baseDir: "./app/"
+        // }
+
+		// proxy: "localhost"
+		// proxy: {
+		//     target: "http://192.168.99.76.dev",
+		//     middleware: function (req, res, next) {
+		//         console.log(req.url);
+		//         next();
+		//     }
+		// }
+    // });
+// });
 
 // task to run build server for testing final app
 gulp.task('build:serve', function() {
@@ -189,10 +205,11 @@ gulp.task('build', ['build:copy', 'build:remove']);
 // // /////////////////////////////////////////////
 
 gulp.task ('watch', function(){
+	livereload.listen();
 	gulp.watch('app/scss/**/*.scss', ['styles']);
 	gulp.watch('app/js/**/*.js', ['scripts']);
   	gulp.watch('app/**/*.html', ['html']);
 });
 
 
-gulp.task('default', ['scripts', 'lib-scripts', 'image-min' ,'styles', 'html', 'browser-sync', 'watch']);
+gulp.task('default', ['scripts', 'lib-scripts', 'image-min' ,'styles', 'html', 'watch']);

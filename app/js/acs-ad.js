@@ -4,9 +4,9 @@
 	ACSHOPE.event = {};
 
 	ACSHOPE.init = {
-		engageAd: function () {
+		animateAd: function () {
 			var veil 			= document.getElementById('veil'),
-				acsBG 	= document.getElementById('acs-ad-background'),
+				acsBG 			= document.getElementById('acs-ad-background'),
 				txt1 			= document.getElementById('acs-ad-txt1'),
 				txt2 			= document.getElementById('acs-ad-txt2'),
 				txt3 			= document.getElementById('acs-ad-txt3'),
@@ -43,5 +43,5 @@
 			;
 		}
 	}
-	ACSHOPE.init.engageAd();
+	ACSHOPE.init.animateAd();
 }());
