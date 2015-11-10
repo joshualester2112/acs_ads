@@ -1,18 +1,23 @@
 // ***********************************
-// FONTS
-// ***********************************
-@include font-face(FrutigerLTStd-Roman, 'fonts/FrutigerLTStd-Roman_gdi', normal, normal);
-@include font-face(FrutigerLTStd-Bold, 'fonts/FrutigerLTStd-Bold_gdi', normal, normal);
-
-
-
-// ***********************************
 // TYPOGRAPHY AND LINKS
 // ***********************************
 
 .acs-ad-txt {
 	position: absolute;
-	font-family: 'FrutigerLTStd-Roman', Arial, sans-serif;
+	font-family: 'Roboto', Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	letter-spacing: 0.5px;
 	font-size: 15px;
 	color: #fff;
+}
+
+.keyword {
+	font-family: 'Roboto', Helvetica, Arial, sans-serif;
+	font-weight: 900;
+	font-size: 76px;
+	text-transform: uppercase;
+	letter-spacing: -3px;
+	color: rgba(255,255,255,0.8);
+	text-align: center;
+	transform: scaleX(0.75);
 }

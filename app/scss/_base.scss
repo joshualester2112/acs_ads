@@ -9,7 +9,8 @@
 }
 
 body {
-	padding: 10px;
+	padding: 12px;
+	background-color: black;
 }
 
 img {
@@ -27,15 +28,22 @@ img {
 	@include size(300px 250px);
 	position: relative;
 	overflow: hidden;
+	background: black;
+	#veil {
+		@include size(inherit inherit);
+		background-color: #000;
+		@include position(absolute, 0 0 0 0);
+		z-index: 4999;
+	}
 }
 
 #acs-ad-background {
 	position: absolute;
-	width: inherit;
-	height: inherit;
+	width: 600px;
+	height: 500px;
 	background: url('../media/img/ad_background.jpg') no-repeat 0px 0px;
-	transform: scale(2.56);
-	transform-origin: 0px 75px;
+	transform: translate3d(0px,-60px,0px) scale(2.6);
+	transform-origin: 0px 0px;
 }
 
 #acs-ad-txt1 {
@@ -45,7 +53,7 @@ img {
 }
 
 #acs-ad-txt2 {
-	@include position(absolute, 157px 0px null 0px);
+	@include position(absolute, 142px 0px null 0px);
 	@include margin(0 auto);
 }
 
@@ -70,14 +78,25 @@ img {
 }
 
 #acs-ad-txt6 {
+	top: 220px;
+	text-align: center;
+	right: 0;
+	left: 0;
+	color: darkgray;
+}
+
+#acs-ad-txt7 {
+	text-align: center;
 	top: 143px;
-	right: 32px;
+	right: 28px;
 }
 
 #acs-donate {
 	@include size(122px 39px);
 	@include position(absolute, 167px 23px null null);
-	font-family: 'FrutigerLTStd-Bold', Arial, sans-serif;
+	font-family: 'Roboto', Arial, sans-serif;
+	letter-spacing: 0.5px;
+	font-weight: 500;
 	width: 122px;
 	height: 39px;
 	font-size: 16px;
